@@ -6,6 +6,8 @@ import Leaderboard from "./components/Leaderboard";
 import VirtualRakhi from "./components/VirtualRakhi";
 // import WishGenerator from "./components/WishGenerator";
 import GiftReveal from "./components/GiftReveal";
+import Antics from "./components/Antics";
+import GoodBye from "./components/GoodBye";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
                 <VirtualRakhi /> 
                 {/* <WishGenerator /> */}
                 <GiftReveal />
+                <Antics />
+                <GoodBye />
               </>
             }
           />
