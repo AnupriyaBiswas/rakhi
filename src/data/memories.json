@@ -1,4 +1,9 @@
 [
-  { "image": "/assets/childhood1.jpg", "caption": "When you taught me cycling ❤️" },
-  { "image": "/assets/childhood2.jpg", "caption": "Our epic pillow fight" }
+  { "image": "assets/futo-mostan.jpg", "caption": "Futo Mostan" },
+  { "image": "assets/chele-amar-mithun.jpg", "caption": "Chele Amar Mithoon" },
+  { "image": "assets/hero-alom.jpeg", "caption": "Hero Alom 2.0" },
+  { "image": "assets/nerd.jpeg", "caption": "Ghontu Puro" },
+  { "image": "assets/pookie.jpeg", "caption": "Pookie Naki Abar!" },
+  { "image": "assets/star-jalsha.jpg", "caption": "Star Jalshar Notun Hero" },
+  { "image": "assets/notun-bou.jpeg", "caption": "Notun Bou" }
 ]
