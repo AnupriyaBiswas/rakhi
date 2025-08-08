@@ -11,51 +11,30 @@ import GoodBye from "./components/GoodBye";
 
 export default function App() {
   const audioRef = useRef(null);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isMusicLoaded, setIsMusicLoaded] = useState(false);
   const [loadError, setLoadError] = useState(null);
   const [isUserInteracted, setIsUserInteracted] = useState(false);
-
-  // **NEW: Force dummy interaction after page loads**
-  useEffect(() => {
-    const forceDummyInteraction = () => {
-      // Create a dummy click event on the document
-      const dummyEvent = new Event('click', { bubbles: true });
-      document.dispatchEvent(dummyEvent);
-      
-      // Mark as user interacted
-      setIsUserInteracted(true);
-      
-      console.log("🎯 Dummy interaction triggered");
-    };
-
-    // Force dummy interaction after a short delay
-    const timer = setTimeout(forceDummyInteraction, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   // Handle first user interaction for autoplay policy
   const handleFirstInteraction = useCallback(() => {
     if (!isUserInteracted) {
       setIsUserInteracted(true);
-      console.log("👆 Real user interaction detected");
-    }
-    
-    // Try to play music after any interaction (real or dummy)
-    const audio = audioRef.current;
-    if (audio && isMusicLoaded && isMusicPlaying && audio.paused) {
-      audio.play().catch(error => {
-        console.log("Still can't autoplay:", error);
-      });
+      // Try to play music after first user interaction
+      const audio = audioRef.current;
+      if (audio && isMusicLoaded && !isMusicPlaying) {
+        audio.play().catch(error => {
+          console.log("Still can't autoplay:", error);
+        });
+      }
     }
   }, [isUserInteracted, isMusicLoaded, isMusicPlaying]);
 
-  // Add event listeners for user interaction (including dummy ones)
+  // Add event listeners for first user interaction
   useEffect(() => {
     const events = ['click', 'touchstart', 'keydown'];
     events.forEach(event => {
-      document.addEventListener(event, handleFirstInteraction);
+      document.addEventListener(event, handleFirstInteraction, { once: true });
     });
 
     return () => {
@@ -65,7 +44,7 @@ export default function App() {
     };
   }, [handleFirstInteraction]);
 
-  // Initialize music when loaded
+  // Initialize music when loaded and try immediate autoplay
   useEffect(() => {
     const audio = audioRef.current;
     if (audio && isMusicLoaded) {
@@ -91,13 +70,13 @@ export default function App() {
       audio.addEventListener('ended', handleEnded);
       audio.addEventListener('error', handleError);
 
-      // Attempt immediate autoplay
+      // **NEW: Try to start music immediately when loaded**
       const attemptAutoplay = async () => {
         try {
           await audio.play();
           console.log("✅ Music started automatically on page load!");
         } catch (error) {
-          console.log("❌ Autoplay blocked - dummy interaction will trigger it");
+          console.log("❌ Autoplay blocked by browser - waiting for user interaction");
         }
       };
 
@@ -132,6 +111,7 @@ export default function App() {
       console.error("Error toggling music:", error.name, error.message);
       setIsMusicPlaying(false);
       
+      // Don't show AbortError to user as it's usually harmless
       if (error.name !== 'AbortError') {
         setLoadError(error.message);
       }
@@ -229,6 +209,7 @@ export default function App() {
           title={isMusicPlaying ? "Pause Music" : "Play Music"}
         >
           {isMusicPlaying ? (
+            // Pause Icon - Shows when music IS playing
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -238,6 +219,7 @@ export default function App() {
               <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
             </svg>
           ) : (
+            // Play Icon - Shows when music IS NOT playing
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

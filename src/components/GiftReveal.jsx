@@ -51,7 +51,7 @@ export default function GiftReveal() {
           {/* Gift Image */}
           <div className="absolute inset-0 flex items-center justify-center">
             <img
-              src="/assets/gift.jpg"
+              src="/assets/gift.jpeg"
               alt="gift"
               className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
             />
