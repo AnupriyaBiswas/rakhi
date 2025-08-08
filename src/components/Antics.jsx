@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 
-export default function BhaiAntics() {
+export default function BhaiAntics({ pauseMusic, resumeMusic, isMusicPlaying }) {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
   const [activeVideo, setActiveVideo] = useState(null);
   const [hoveredVideo, setHoveredVideo] = useState(null);
+  const [musicWasPlaying, setMusicWasPlaying] = useState(false);
 
   const playVideo = (videoNumber) => {
     const currentVideo = videoNumber === 1 ? video1Ref.current : video2Ref.current;
@@ -18,11 +19,22 @@ export default function BhaiAntics() {
     // Play the selected video
     if (currentVideo) {
       if (currentVideo.paused) {
+        // Store current music state before pausing it
+        setMusicWasPlaying(isMusicPlaying);
+        if (isMusicPlaying) {
+          pauseMusic();
+        }
+        
         currentVideo.play();
         setActiveVideo(videoNumber);
       } else {
         currentVideo.pause();
         setActiveVideo(null);
+        
+        // Resume music if it was playing before
+        if (musicWasPlaying) {
+          resumeMusic();
+        }
       }
     }
   };
@@ -44,6 +56,11 @@ export default function BhaiAntics() {
       if (video2Ref.current) {
         video2Ref.current.pause();
       }
+      
+      // Resume music if it was playing before and a video was active
+      if (activeVideo && musicWasPlaying) {
+        resumeMusic();
+      }
     };
   }, []);
 
@@ -58,6 +75,12 @@ export default function BhaiAntics() {
         if (video2Ref.current && !video2Ref.current.paused) {
           video2Ref.current.pause();
         }
+        
+        // Resume music if it was playing before
+        if (activeVideo && musicWasPlaying) {
+          resumeMusic();
+        }
+        
         setActiveVideo(null);
       }
     };
@@ -67,7 +90,7 @@ export default function BhaiAntics() {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [activeVideo, musicWasPlaying, resumeMusic]);
 
   return (
     <section className="relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
