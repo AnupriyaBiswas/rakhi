@@ -48,6 +48,27 @@ export default function VirtualRakhi() {
           Happy রাখি!
         </h2>
 
+        {/* Guide Text - Only show when rakhi is not tied */}
+        {!tied && (
+          <div className="flex justify-center mb-6 animate-pulse">
+            <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border-2 border-[#fff5d7]">
+              <p className="text-[#2C3E50] font-medium text-sm sm:text-base flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-5 h-5 mr-2 text-[#f8b500]"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                </svg>
+                Drag the Rakhi on the wrist to tie it
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="relative flex justify-center items-center w-full flex-1">
           {/* Wrist Image - fills most of the available height */}
           <img
@@ -56,15 +77,23 @@ export default function VirtualRakhi() {
             className="max-h-[70vh] w-auto pointer-events-none"
           />
 
-          {/* Rakhi - starts from right side */}
-          {!tied && (
+          {/* Rakhi - Show different states based on tied status */}
+          {!tied ? (
+            // Draggable rakhi when not tied
             <Draggable onStop={handleDrop}>
               <img
                 src="/assets/rakhi.png"
                 alt="rakhi"
-                className="w-20 cursor-grab absolute right-10 top-1/2 -translate-y-1/2 z-10"
+                className="w-20 cursor-grab active:cursor-grabbing absolute right-10 top-1/2 -translate-y-1/2 z-10 hover:scale-105 transition-transform duration-200"
               />
             </Draggable>
+          ) : (
+            // Fixed rakhi when tied (positioned on wrist)
+            <img
+              src="/assets/rakhi.png"
+              alt="rakhi tied on wrist"
+              className="w-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 animate-pulse"
+            />
           )}
 
           {/* Confetti & Message */}
