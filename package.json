@@ -1,0 +1,30 @@
+{
+  "name": "rakhi",
+  "version": "1.0.0",
+  "description": "A Rakhi Gift for my Favourite Brother",
+  "license": "ISC",
+  "author": "Anupriya Biswas",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-confetti": "^6.4.0",
+    "react-draggable": "^4.5.0",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.11",
+    "vite": "^5.4.8"
+  }
+}
