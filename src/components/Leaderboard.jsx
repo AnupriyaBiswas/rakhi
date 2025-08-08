@@ -46,7 +46,7 @@ export default function Leaderboard() {
           </ul>
           <div className="mt-6">
             <p className="mb-2 font-semibold text-[#2C3E50] text-sm sm:text-base">
-              Sibling Bond Level
+              Bond Level
             </p>
             <ProgressBar value={leaderboard.bondLevel} />
           </div>

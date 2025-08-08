@@ -45,7 +45,7 @@ export default function VirtualRakhi() {
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Matching heading style from other pages */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-8 mt-10 text-[#2C3E50] drop-shadow-2xl tracking-wide">
-          Happy Rakhi!
+          Happy রাখি!
         </h2>
 
         <div className="relative flex justify-center items-center w-full flex-1">

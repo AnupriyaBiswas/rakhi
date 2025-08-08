@@ -7,6 +7,8 @@ import VirtualRakhi from "./components/VirtualRakhi";
 // import WishGenerator from "./components/WishGenerator";
 import GiftReveal from "./components/GiftReveal";
 import Antics from "./components/Antics";
+import Collection from  "./components/Collection"
+import Jump from "./components/Jump";
 import GoodBye from "./components/GoodBye";
 
 export default function App() {
@@ -243,6 +245,12 @@ export default function App() {
                 {/* <WishGenerator /> */}
                 <GiftReveal />
                 <Antics 
+                  pauseMusic={pauseMusic}
+                  resumeMusic={resumeMusic}
+                  isMusicPlaying={isMusicPlaying}
+                />
+                <Collection />
+                <Jump
                   pauseMusic={pauseMusic}
                   resumeMusic={resumeMusic}
                   isMusicPlaying={isMusicPlaying}

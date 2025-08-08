@@ -41,7 +41,7 @@ export default function Hero() {
           {/* Left Column - Text */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4 animate-slideInLeft">
             <h1 className="text-5xl md:text-6xl font-extrabold text-[#2C3E50] drop-shadow-2xl tracking-wide">
-              Happy Rakhi, Bhai!
+              Happy রাখি, ভাই!
             </h1>
             <p className="text-lg md:text-2xl text-[#2C3E50] font-medium px-4 py-2 rounded-lg transition-opacity duration-1000 ease-out delay-200">
               From your favorite Didi 😉

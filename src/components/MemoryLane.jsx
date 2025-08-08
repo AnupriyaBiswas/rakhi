@@ -60,7 +60,7 @@ export default function MemoryLane() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen transparent">
         {/* Title - Added responsive text sizing and spacing */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-6 sm:mb-8 md:mb-12 text-[#2C3E50] drop-shadow-2xl tracking-wide animate-titleFade px-4">
-          Bhai er Hajar-obotaar
+          ভাইয়ের কয়েক অবতার
         </h2>
 
         {/* Carousel */}

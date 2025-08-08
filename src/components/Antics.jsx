@@ -113,7 +113,7 @@ export default function BhaiAntics({ pauseMusic, resumeMusic, isMusicPlaying }) 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8 sm:mb-12 text-[#2C3E50] drop-shadow-2xl tracking-wide animate-titleFade px-4">
-          Bhai-er Bibhinno Antics
+          ভাইয়ের বিভিন্ন Antics
         </h2>
 
         {/* Videos Container */}

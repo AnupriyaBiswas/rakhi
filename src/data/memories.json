@@ -1,9 +1,9 @@
 [
-  { "image": "assets/futo-mostan.jpg", "caption": "Futo Mostan" },
-  { "image": "assets/chele-amar-mithun.jpg", "caption": "Chele Amar Mithoon" },
-  { "image": "assets/hero-alom.jpeg", "caption": "Hero Alom 2.0" },
-  { "image": "assets/nerd.jpeg", "caption": "Ghontu Puro" },
-  { "image": "assets/pookie.jpeg", "caption": "Pookie Naki Abar!" },
-  { "image": "assets/star-jalsha.jpg", "caption": "Star Jalshar Notun Hero" },
-  { "image": "assets/notun-bou.jpeg", "caption": "Notun Bou" }
+  { "image": "assets/futo-mostan.jpg", "caption": "ফুটো-মস্তান" },
+  { "image": "assets/chele-amar-mithun.jpg", "caption": "ছেলে আমার মিঠুন" },
+  { "image": "assets/hero-alom.jpeg", "caption": "হিরো আলোম ২.০" },
+  { "image": "assets/nerd.jpeg", "caption": "ঘন্টুস" },
+  { "image": "assets/pookie.jpeg", "caption": "Pookie নাকি আবার!" },
+  { "image": "assets/star-jalsha.jpg", "caption": "স্টার জলসার নতুন হিরো" },
+  { "image": "assets/notun-bou.jpeg", "caption": "নতুন বউ" }
 ]
